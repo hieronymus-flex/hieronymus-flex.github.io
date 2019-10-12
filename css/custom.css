@@ -1,3 +1,7 @@
 .btn-secondary {
     
 }
+
+.header-gradient {
+    background-image: linear-gradient(to right top, #5f4dee, #5a62f2, #5b75f3, #6286f1, #6f95ee, #7a99f2, #849cf5, #8ea0f9, #9f97ff, #b78aff, #d478ff, #f25ffb);
+}
