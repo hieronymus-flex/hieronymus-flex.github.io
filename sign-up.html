@@ -109,24 +109,24 @@
                    <p>Fill out the form below to sign up for Tivo. Already signed up? Then just <a class="white" href="log-in.html">Log In</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
-                        <form id="signUpForm" data-toggle="validator" data-focus="false">
+                        <form name="submit-to-google-sheet" id="contact_form" data-toggle="validator" data-focus="false">
                             <div class="form-group">
-                                <input type="email" class="form-control-input" id="semail" required>
+                                <input name="email" type="email" class="form-control-input" id="semail" required>
                                 <label class="label-control" for="semail">Email</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="sname" required>
+                                <input name="name" type="text" class="form-control-input" id="sname" required>
                                 <label class="label-control" for="sname">Name</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="spassword" required>
+                                <input name="password" type="text" class="form-control-input" id="spassword" required>
                                 <label class="label-control" for="spassword">Password</label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group checkbox">
-                                <input type="checkbox" id="sterms" value="Agreed-to-Terms" required>I agree with Tivo's <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a>
+                                <input name="checkbox" type="checkbox" id="sterms" value="Agreed-to-Terms" required>I agree with Tivo's <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
@@ -155,5 +155,19 @@
     <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
     <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
     <script src="js/scripts.js"></script> <!-- Custom scripts -->
+    
+    
+    <script>
+      const scriptURL = 'https://wh.automate.io/webhook/5da84a6b419c8867f03010f5';
+      const form = document.forms['submit-to-google-sheet'];
+
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {console.log('Success!', response); window.location.href = 'https://google.com';})
+          .catch(error => console.error('Error!', error.message));
+      })
+    </script>
+    
 </body>
 </html>
