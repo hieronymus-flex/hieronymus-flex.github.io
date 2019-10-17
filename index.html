@@ -69,6 +69,7 @@
 
       amplitude.getInstance().init("933af59755064422795af3d26e28f0bc");
     </script>
+    <script>amplitude.getInstance().logEvent(window.location.href.split('?')[0].replace('https://', ''));</script>
     
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
